@@ -9,10 +9,16 @@
     <button @click="soundRight">RIGHT</button>
 
     <div>
-      <input type="range" v-model="position" />
+      <input
+        @input="changeSound"
+        type="range"
+        v-model="position"
+        min="-100"
+        max="100"
+      />
     </div>
 
-    <p>{{ this.position }}</p>
+    <p>{{ this.position / 100 }}</p>
   </div>
 </template>
 
@@ -61,6 +67,9 @@ export default {
     },
     soundRight() {
       this.bell.setPanning(1, 2);
+    },
+    changeSound() {
+      this.bell.setPanning(this.position / 100, 2);
     }
   }
 };
@@ -77,5 +86,6 @@ export default {
 }
 
 input {
+  width: 100%;
 }
 </style>
