@@ -37,6 +37,12 @@ export default {
       bell: ""
     };
   },
+  mounted() {
+    this.bell = new Wad({
+      source:
+        "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Oddio_Overplay/Christian_Bjoerklund/Skapmat/Christian_Bjoerklund_-_01_-_Hallon.mp3"
+    });
+  },
   methods: {
     /* playSound() {
       var sound = new Howl({
@@ -53,11 +59,6 @@ export default {
     }
   } */
     playSound() {
-      this.bell = new Wad({
-        source:
-          "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Oddio_Overplay/Christian_Bjoerklund/Skapmat/Christian_Bjoerklund_-_01_-_Hallon.mp3",
-        panning: 1
-      });
       this.bell.play();
 
       this.bell.stop();
